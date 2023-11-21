@@ -2,24 +2,20 @@
 
 #include <LiquidCrystal.h>
 
-// initialize the library by associating any needed LCD interface pin
-// with the arduino pin number it is connected to
 const int rs = 13, en = 12, d4 = 11, d5 = 10, d6 = 1, d7 = 0;
 LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
 
-const byte ROWS = 4; // rows
-const byte COLS = 4; // columns
-//define the symbols on the buttons of the keypads
+const byte ROWS = 4; 
+const byte COLS = 4; 
 char keys[ROWS][COLS] = {
   {'1','2','3','*'},
   {'4','5','6','/'},
   {'7','8','9','E'},
   {'+','0','-','='}
 };
-byte rowPins[ROWS] = {5,4,3,2}; //connect to the row pinouts of the keypad
-byte colPins[COLS] = {9,8,7,6}; //connect to the column pinouts of the keypad
+byte rowPins[ROWS] = {5,4,3,2}; 
+byte colPins[COLS] = {9,8,7,6}; 
 
-//initialize an instance of class NewKeypad
 Adafruit_Keypad customKeypad = Adafruit_Keypad( makeKeymap(keys), rowPins, colPins, ROWS, COLS);
  
  
@@ -32,11 +28,8 @@ bool ok=0;
 char salv;
 int cntr=0,cop;
 void setup() {
-  //Serial.begin(9600);
   customKeypad.begin();
   lcd.begin(16, 2);
-  // Print a message to the LCD.
-  //lcd.print("hello, world!");
   lcd.setCursor(0, 0);
 
 }
@@ -133,7 +126,7 @@ lcd.print(nr);
  
     }
     
-    //else if(e.bit.EVENT == KEY_JUST_RELEASED) Serial.println(" released");
+
   
   }
   delay(10);
